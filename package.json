@@ -1,0 +1,24 @@
+{
+  "name": "phishguard-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PhishGuard — Hybrid Browser-Based Phishing Detection & Protection Platform",
+  "workspaces": [
+    "extension",
+    "dashboard"
+  ],
+  "scripts": {
+    "test:extension": "npm --workspace=extension run test",
+    "test:dashboard": "npm --workspace=dashboard run test",
+    "test:backend": "powershell -Command \".\\.venv\\Scripts\\pytest backend/tests -v\"",
+    "test:all": "npm run test:extension && npm run test:dashboard && npm run test:backend",
+    "build:extension": "npm --workspace=extension run build",
+    "build:dashboard": "npm --workspace=dashboard run build",
+    "lint:extension": "npm --workspace=extension run lint",
+    "lint:dashboard": "npm --workspace=dashboard run lint"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}
+

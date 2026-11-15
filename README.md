@@ -369,27 +369,6 @@ Outputs:
 
 ---
 
-## 🗺️ 7-Day Staged Git Push Plan
-
-<details>
-<summary><b>Click to expand the 7-day push schedule</b></summary>
-
-For staged release or day-by-day GitHub commits:
-
-| Day | Milestone Focus | Commit Hash | Summary |
-| :---: | :--- | :---: | :--- |
-| **Day 1** | Backend Monolith & Auth | `567f6ef` | 13 SQLAlchemy models, Alembic migrations, Argon2id auth, JWT, RBAC |
-| **Day 2** | Detection Core & SSRF | `dd2f56d` | URL parser, entropy engine, Brand Matcher, SSRFSafeClient, URLhaus |
-| **Day 3** | Chrome MV3 Extension | `4c1815c` | Service worker, storage manager, sub-15ms heuristics, DNR blocking |
-| **Day 4** | Extension UI & Warning | `3817658` | Scan orchestrator API, React popup, warning interstitial & overrides |
-| **Day 5** | Machine Learning Pipeline | `540a3bd` | Balanced dataset, domain-grouped split, RF model training & inference |
-| **Day 6** | SOC Dashboard Console | `cf86fe1` | React 18 Dark SOC console, Scan Explorer, Feed manager, Audit logs |
-| **Day 7** | E2E, Security & Release | `d97d6cc` | Playwright E2E suite, security audit, docker-compose, release bundle |
-
-</details>
-
----
-
 ## 📚 Documentation Index
 
 - 📐 [Architectural Blueprint & Threat Model](docs/ARCHITECTURE.md)
