@@ -48,3 +48,4 @@ def configure_logging(level: str = "INFO") -> None:
         root_logger.removeHandler(h)
 
     root_logger.addHandler(handler)
+

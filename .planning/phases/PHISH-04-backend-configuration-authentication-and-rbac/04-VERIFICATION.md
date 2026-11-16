@@ -37,3 +37,4 @@ score: 4/4 must-haves verified
 | `backend/tests/test_auth.py` | Auth & RBAC test suite | ✓ EXISTS + SUBSTANTIVE | 5 test functions covering all auth/RBAC flows |
 
 **Artifacts:** 7/7 verified
+

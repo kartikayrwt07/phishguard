@@ -10,7 +10,7 @@ PhishGuard is built across 20 disciplined milestones grouped into 6 execution wa
 - [x] **Phase 2: Monorepo Structure and Development Infrastructure** - Monorepo setup, linters, pre-commit hooks, Vitest and Pytest harnesses
 - [x] **Phase 3: Database Models and Alembic Migrations** - Normalized PostgreSQL models with UUID PKs, UTC timestamps, and Alembic migrations
 - [x] **Phase 4: Backend Configuration Authentication and RBAC** - FastAPI application factory, Argon2id hashing, JWT auth, and RBAC middleware
-- [ ] **Phase 5: Local URL Analysis Engine** - Safe URL parsing, 30+ lexical/entropy features, Punycode/homoglyph handling
+- [x] **Phase 5: Local URL Analysis Engine** - Safe URL parsing, 30+ lexical/entropy features, Punycode/homoglyph handling
 - [ ] **Phase 6: Rule Engine and Explainable Risk Scoring** - Heuristic evaluation, brand similarity matching, explainable evidence generation
 - [ ] **Phase 7: Threat Intelligence Provider Architecture** - Adapters for URLhaus/PhishTank, circuit breakers, SSRF-safe HTTP client
 - [ ] **Phase 8: Extension Foundation and Manifest V3 Integration** - MV3 skeleton, persistent Service Worker lifecycle, typed message contracts
@@ -91,7 +91,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 05-01: Build URL normalizer, lexical parser, entropy calculators, and test suite.
+- [x] 05-01: Build URL normalizer, lexical parser, entropy calculators, and test suite.
 
 ### Phase 6: Rule Engine and Explainable Risk Scoring
 **Goal**: Implement layered scoring engine, brand distance matching, and itemized evidence generation.
@@ -103,7 +103,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 06-01: Build heuristic rule engine, brand similarity matcher, and risk scoring accumulator.
+- [x] 06-01: Build heuristic rule engine, brand similarity matcher, and risk scoring accumulator.
 
 ### Phase 7: Threat Intelligence Provider Architecture
 **Goal**: Build isolated threat feed adapters with circuit breakers and SSRF-safe HTTP client.
@@ -115,7 +115,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 07-01: Implement threat provider interfaces, concrete adapters, and SSRF-safe network client.
+- [x] 07-01: Implement threat provider interfaces, concrete adapters, and SSRF-safe network client.
 
 ### Phase 8: Extension Foundation and Manifest V3 Integration
 **Goal**: Set up Chrome Manifest V3 extension skeleton with persistent Service Worker lifecycle and typed message bus.
@@ -285,7 +285,7 @@ Phases execute in numeric order: 1 → 2 → 3 → ... → 20
 | 2. Monorepo Structure and Development Infrastructure | 1/1 | Complete | 2026-11-14 |
 | 3. Database Models and Alembic Migrations | 1/1 | Complete | 2026-11-14 |
 | 4. Backend Configuration Authentication and RBAC | 1/1 | Complete | 2026-11-14 |
-| 5. Local URL Analysis Engine | 0/1 | Not started | - |
+| 5. Local URL Analysis Engine | 1/1 | Complete | 2026-11-14 |
 | 6. Rule Engine and Explainable Risk Scoring | 0/1 | Not started | - |
 | 7. Threat Intelligence Provider Architecture | 0/1 | Not started | - |
 | 8. Extension Foundation and Manifest V3 Integration | 0/1 | Not started | - |

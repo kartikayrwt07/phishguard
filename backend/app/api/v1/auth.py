@@ -76,3 +76,4 @@ async def get_me(
 ) -> UserResponse:
     """Return the profile of the currently authenticated user."""
     return UserResponse.model_validate(current_user)
+

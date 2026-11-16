@@ -5,16 +5,16 @@
 See: `.planning/PROJECT.md` (updated 2026-11-14)
 
 **Core value:** Accurately detect and disrupt deceptive web destinations and credential harvesting attempts in real-time, delivering explainable risk evidence while remaining fully functional offline and rigorously defending user privacy.  
-**Current focus:** Phase 5: Local URL Analysis Engine
+**Current focus:** Phase 8: Extension Foundation and Manifest V3 Integration
 
 ## Current Position
 
-Phase: 5 of 20 (Phase 5: Local URL Analysis Engine)  
+Phase: 8 of 20 (Phase 8: Extension Foundation and Manifest V3 Integration)  
 Plan: 0 of 1 in current phase  
 Status: Ready to plan  
-Last activity: 2026-11-14 — Completed Phase 4 (M4). FastAPI application factory, Argon2id hashing, JWT auth, security headers (CSP, X-Frame-Options), structured JSON logging, and server-side RBAC dependencies verified passing (16/16 tests passing).
+Last activity: 2026-11-14 — Completed Phase 7 (M7). SSRF-safe HTTP client with pre-DNS resolution and socket IP pinning, Circuit Breaker fault isolation, URLhaus & PhishTank adapters, and concurrent orchestration service verified passing (47/47 total tests passing across monorepo).
 
-Progress: [▓▓▓▓░░░░░░] 20%
+Progress: [▓▓▓▓▓▓▓░░░] 35%
 
 ## Accumulated Context
 
@@ -30,6 +30,17 @@ Progress: [▓▓▓▓░░░░░░] 20%
 - [M3]: All 13 domain models configured with UUID primary keys and UTC timezone-aware timestamps.
 - [M4]: Argon2id password hashing and JWT token lifecycle (access + refresh tokens).
 - [M4]: Server-side RBAC with require_role dependency enforcing Admin vs Analyst vs User permissions.
+- [M5]: Safe URL parsing strips default ports (80, 443), handles multi-part TLDs, and normalizes paths.
+- [M5]: Feature extraction extracts 34 distinct structural, lexical, entropy, and statistical indicators.
+- [M6]: Curated reference catalog of 16 top brands with legitimate domain exemptions to eliminate self-flagging.
+- [M6]: Tokenized hyphen-separated domain labels to catch compound lookalike phishing (e.g., paypa1-account-verify.xyz).
+- [M6]: DOM structural evaluator inspects credential targets and hidden iframes without collecting password values, inputs, or cookies.
+- [M6]: Layer 7 RiskEngine outputs categorical verdicts, 0-100 normalized score, confidence, and itemized ScanEvidenceItem records.
+- [M6]: Deterministic override policies enforce immediate SAFE (0) on allowlist and PHISHING (100) on verified threat feeds.
+- [M7]: SSRF-safe client pre-resolves DNS and pins the validated IP directly in HTTP transport with Host header and SNI hostname extension to defeat DNS rebinding (TOCTOU).
+- [M7]: Automated redirects disabled in SSRF client; step-by-step redirect validation prevents internal redirect hops to metadata or private IPs.
+- [M7]: In-memory CircuitBreaker (CLOSED, OPEN, HALF_OPEN) isolates downstream detection latency from upstream feed outages.
+- [M7]: ThreatIntelligenceService coordinates concurrent queries with an overall timeout budget and aggregates explainable evidence.
 
 ### Pending Todos
 
@@ -41,5 +52,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-11-14 11:41  
-Stopped at: Phase 4 complete and verified. Ready to plan and execute Phase 5 (Local URL Analysis Engine).
+Last session: 2026-11-14 12:30  
+Stopped at: Phase 7 complete and verified. Ready to plan and execute Phase 8 (Extension Foundation and Manifest V3 Integration).

@@ -62,3 +62,4 @@ class DuplicateResourceError(PhishGuardException):
             detail=detail,
             error_code="DUPLICATE_RESOURCE",
         )
+

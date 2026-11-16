@@ -46,3 +46,4 @@ async def analyst_access_check(
 ) -> Dict[str, str]:
     """Test endpoint proving that ANALYST or ADMIN roles can access this resource."""
     return {"message": "Analyst authorization verified", "role": analyst_user.role.value}
+

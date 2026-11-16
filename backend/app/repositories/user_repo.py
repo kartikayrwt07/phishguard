@@ -33,3 +33,4 @@ class UserRepository:
         await self.session.flush()
         await self.session.refresh(user)
         return user
+
