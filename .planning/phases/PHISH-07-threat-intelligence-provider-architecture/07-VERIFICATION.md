@@ -36,3 +36,4 @@ score: 4/4 must-haves verified
 | `backend/tests/test_threat_intel.py` | Pytest Suite | ✓ EXISTS + SUBSTANTIVE | 12 tests covering SSRF, circuit breaker, adapters, and service orchestration |
 
 **Artifacts:** 6/6 verified
+

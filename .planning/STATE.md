@@ -5,16 +5,16 @@
 See: `.planning/PROJECT.md` (updated 2026-11-14)
 
 **Core value:** Accurately detect and disrupt deceptive web destinations and credential harvesting attempts in real-time, delivering explainable risk evidence while remaining fully functional offline and rigorously defending user privacy.  
-**Current focus:** Phase 8: Extension Foundation and Manifest V3 Integration
+**Current focus:** Phase 11: Backend Integration and Cloud Enrichment
 
 ## Current Position
 
-Phase: 8 of 20 (Phase 8: Extension Foundation and Manifest V3 Integration)  
+Phase: 11 of 20 (Phase 11: Backend Integration and Cloud Enrichment)  
 Plan: 0 of 1 in current phase  
 Status: Ready to plan  
-Last activity: 2026-11-14 — Completed Phase 7 (M7). SSRF-safe HTTP client with pre-DNS resolution and socket IP pinning, Circuit Breaker fault isolation, URLhaus & PhishTank adapters, and concurrent orchestration service verified passing (47/47 total tests passing across monorepo).
+Last activity: 2026-11-14 — Completed Phase 10 (M10). Content script structural DOM extractor with zero-secret guarantees, Shadow DOM warning holding shroud, and background score enrichment verified passing (82/82 total tests passing across monorepo).
 
-Progress: [▓▓▓▓▓▓▓░░░] 35%
+Progress: [▓▓▓▓▓▓▓▓▓▓] 50%
 
 ## Accumulated Context
 
@@ -41,6 +41,17 @@ Progress: [▓▓▓▓▓▓▓░░░] 35%
 - [M7]: Automated redirects disabled in SSRF client; step-by-step redirect validation prevents internal redirect hops to metadata or private IPs.
 - [M7]: In-memory CircuitBreaker (CLOSED, OPEN, HALF_OPEN) isolates downstream detection latency from upstream feed outages.
 - [M7]: ThreatIntelligenceService coordinates concurrent queries with an overall timeout budget and aggregates explainable evidence.
+- [M8]: Extension configured for Manifest V3 with least-privilege permissions (`storage`, `tabs`, `declarativeNetRequest`, `activeTab`).
+- [M8]: StorageManager wraps `chrome.storage.local` with in-memory fallback for testing, UUID deviceId generation, and 15-minute TTL scan cache eviction.
+- [M8]: Discriminated union message bus establishes strongly typed communication across service worker, popup, options, and content scripts.
+- [M8]: Vite multi-entry build configured to compile standalone `background.js` and `content.js` scripts alongside HTML bundles.
+- [M9]: Preserved pre-IDNA Unicode host in client-side URL normalizer to detect non-ASCII homoglyphs directly.
+- [M9]: Implemented sub-15ms offline HeuristicEngine (<1ms average) evaluating Shannon entropy, lexical indicators, and brand catalog lookalikes.
+- [M9]: Guaranteed immediate SAFE (score 0) exemption for legitimate brand root and subdomains.
+- [M9]: Implemented DNRRuleManager for synchronous declarativeNetRequest blocking and warning page redirects on confirmed threats.
+- [M10]: DOMSignalExtractor analyzes structural elements only (action, type, style, src) with zero collection or transmission of inputs, values, or cookies.
+- [M10]: WarningShroudManager mounts inside an isolated Shadow DOM container to prevent host page CSS from interfering with the alert.
+- [M10]: Content script debounces dynamic SPA DOM mutations by 400ms to detect dynamically injected credential forms.
 
 ### Pending Todos
 
@@ -52,5 +63,5 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-11-14 12:30  
-Stopped at: Phase 7 complete and verified. Ready to plan and execute Phase 8 (Extension Foundation and Manifest V3 Integration).
+Last session: 2026-11-14 12:54  
+Stopped at: Phase 10 complete and verified. Ready to plan and execute Phase 11 (Backend Integration and Cloud Enrichment).

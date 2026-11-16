@@ -127,7 +127,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 08-01: Build MV3 extension foundation, service worker lifecycle, and typed messaging bus.
+- [x] 08-01: Build MV3 extension foundation, service worker lifecycle, and typed messaging bus.
 
 ### Phase 9: Extension URL Analysis and Local Caching
 **Goal**: Implement client-side offline URL analysis and declarativeNetRequest blocking.
@@ -139,7 +139,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 09-01: Port lightweight URL heuristic engine to extension and wire DNR manager.
+- [x] 09-01: Port lightweight URL heuristic engine to extension and wire DNR manager.
 
 ### Phase 10: DOM and Credential-Form Indicator Analysis
 **Goal**: Implement privacy-preserving content script signal extractor.
@@ -151,7 +151,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 10-01: Implement content script DOM observer, typed signal messages, and visual holding shroud.
+- [x] 10-01: Implement content script DOM observer, typed signal messages, and visual holding shroud.
 
 ### Phase 11: Backend Integration and Cloud Enrichment
 **Goal**: Connect extension to backend API for background risk enrichment.

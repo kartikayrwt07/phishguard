@@ -250,3 +250,4 @@ class SSRFSafeClient:
         data: Optional[Any] = None,
     ) -> httpx.Response:
         return await self.request("POST", url, headers=headers, json=json, data=data)
+

@@ -142,3 +142,4 @@ class PhishTankProvider(ThreatProvider):
         """
         probe_url = f"http://{domain}/"
         return await self.lookup_url(probe_url)
+

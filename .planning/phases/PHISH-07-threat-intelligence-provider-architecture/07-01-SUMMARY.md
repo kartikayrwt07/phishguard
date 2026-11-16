@@ -75,3 +75,4 @@ completed: 2026-11-14
 - **Automated Verification**:
   - Authored `backend/tests/test_threat_intel.py` with 12 tests covering private IP detection, DNS mock validation, redirect protection, circuit breaker transitions, adapter parsing, and service aggregation.
   - All 12 threat intel tests and 43 total backend tests pass.
+

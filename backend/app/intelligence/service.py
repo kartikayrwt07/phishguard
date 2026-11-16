@@ -276,3 +276,4 @@ class ThreatIntelligenceService:
             total_query_time_ms=total_elapsed_ms,
             evidence_summary=evidence_summary,
         )
+

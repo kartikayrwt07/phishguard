@@ -188,3 +188,4 @@ class ThreatProvider(ABC):
     async def lookup_domain(self, domain: str) -> ProviderResult:
         """Query provider for reputation of a domain name."""
         pass
+

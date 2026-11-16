@@ -411,3 +411,4 @@ async def test_threat_intelligence_service_resilience_to_failures():
     assert "Connection to URLhaus timed out" in (enrichment.provider_results["urlhaus"].error or "")
     # Check that failure counter incremented on failing provider's circuit breaker
     assert failing_provider.circuit_breaker.consecutive_failures == 1
+

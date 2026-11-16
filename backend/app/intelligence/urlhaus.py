@@ -226,3 +226,4 @@ class URLhausProvider(ThreatProvider):
                 query_time_ms=elapsed_ms,
                 error=f"Network or parsing error: {e}",
             )
+
