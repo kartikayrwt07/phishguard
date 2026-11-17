@@ -26,7 +26,8 @@ export type ExtensionMessageType =
   | 'ADD_ALLOWLIST'
   | 'REMOVE_ALLOWLIST'
   | 'GET_ALLOWLIST'
-  | 'GET_DEVICE_INFO';
+  | 'GET_DEVICE_INFO'
+  | 'BYPASS_BLOCK';
 
 export interface PingMessage {
   type: 'PING';
@@ -89,6 +90,14 @@ export interface GetDeviceInfoMessage {
   type: 'GET_DEVICE_INFO';
 }
 
+export interface BypassBlockMessage {
+  type: 'BYPASS_BLOCK';
+  payload: {
+    domain: string;
+    url?: string;
+  };
+}
+
 export type ExtensionMessage =
   | PingMessage
   | AnalyzeUrlMessage
@@ -99,7 +108,8 @@ export type ExtensionMessage =
   | AddAllowlistMessage
   | RemoveAllowlistMessage
   | GetAllowlistMessage
-  | GetDeviceInfoMessage;
+  | GetDeviceInfoMessage
+  | BypassBlockMessage;
 
 export interface MessageResponse<T = unknown> {
   success: boolean;

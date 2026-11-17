@@ -5,16 +5,16 @@
 See: `.planning/PROJECT.md` (updated 2026-11-14)
 
 **Core value:** Accurately detect and disrupt deceptive web destinations and credential harvesting attempts in real-time, delivering explainable risk evidence while remaining fully functional offline and rigorously defending user privacy.  
-**Current focus:** Phase 11: Backend Integration and Cloud Enrichment
+**Current focus:** Phase 13: ML Dataset and Feature Engineering
 
 ## Current Position
 
-Phase: 11 of 20 (Phase 11: Backend Integration and Cloud Enrichment)  
+Phase: 13 of 20 (Phase 13: ML Dataset and Feature Engineering)  
 Plan: 0 of 1 in current phase  
 Status: Ready to plan  
-Last activity: 2026-11-14 — Completed Phase 10 (M10). Content script structural DOM extractor with zero-secret guarantees, Shadow DOM warning holding shroud, and background score enrichment verified passing (82/82 total tests passing across monorepo).
+Last activity: 2026-11-14 — Completed Phase 12 (M12). Standalone warning interstitial UI (`warning.html`), explainable evidence presentation, safe navigation triggers, two-step proceed overrides (`BYPASS_BLOCK`), and allowlist persistence verified passing (97/97 total tests passing across monorepo). Wave 3 (Extension & Client Protection) is now fully complete!
 
-Progress: [▓▓▓▓▓▓▓▓▓▓] 50%
+Progress: [▓▓▓▓▓▓▓▓▓▓▓▓] 60%
 
 ## Accumulated Context
 
@@ -52,6 +52,11 @@ Progress: [▓▓▓▓▓▓▓▓▓▓] 50%
 - [M10]: DOMSignalExtractor analyzes structural elements only (action, type, style, src) with zero collection or transmission of inputs, values, or cookies.
 - [M10]: WarningShroudManager mounts inside an isolated Shadow DOM container to prevent host page CSS from interfering with the alert.
 - [M10]: Content script debounces dynamic SPA DOM mutations by 400ms to detect dynamically injected credential forms.
+- [M11]: Backend scan orchestrator (/api/v1/scan) combines DB allowlist checks, external threat feed enrichment, and multi-layer risk scoring into an itemized evidence record.
+- [M11]: Extension BackendApiClient implements an abort timeout budget (2.5s) and offline-first resilience, gracefully returning null on errors without unhandled rejections.
+- [M11]: React + Tailwind popup displays real-time risk gauge, threat tags, explainable evidence items, and allowlist controls.
+- [M12]: Warning interstitial (`warning.html`) renders detailed threat verdict, risk score, confidence rating, and itemized explainable evidence list.
+- [M12]: Implemented primary "Back to Safety" navigation alongside two-step proceed overrides (`BYPASS_BLOCK` and `ADD_ALLOWLIST`) with dynamic DNR rule unregistration to prevent infinite redirect loops.
 
 ### Pending Todos
 

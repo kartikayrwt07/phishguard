@@ -1,23 +1,32 @@
 """
-Pydantic v2 schemas export.
+Pydantic schemas package for request/response serialization.
 """
-from app.schemas.user import UserBase, UserCreate, UserResponse
 from app.schemas.auth import (
     LoginRequest,
     RegisterRequest,
     TokenRefreshRequest,
-    TokenRefreshResponse,
     TokenResponse,
 )
+from app.schemas.scan import (
+    DOMSignalsPayload,
+    EvidenceItemSchema,
+    ScanHistoryResponse,
+    ScanRequest,
+    ScanResponse,
+)
+from app.schemas.user import UserCreate, UserResponse, UserUpdate
 
 __all__ = [
-    "UserBase",
-    "UserCreate",
-    "UserResponse",
-    "LoginRequest",
     "RegisterRequest",
-    "TokenRefreshRequest",
-    "TokenRefreshResponse",
+    "LoginRequest",
     "TokenResponse",
+    "TokenRefreshRequest",
+    "UserCreate",
+    "UserUpdate",
+    "UserResponse",
+    "ScanRequest",
+    "DOMSignalsPayload",
+    "EvidenceItemSchema",
+    "ScanResponse",
+    "ScanHistoryResponse",
 ]
-

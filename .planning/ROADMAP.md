@@ -163,7 +163,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 11-01: Build extension API client, React popup UI, and cloud enrichment flow.
+- [x] 11-01: Build extension API client, React popup UI, and cloud enrichment flow.
 
 ### Phase 12: Warning Interstitial and Protection Controls
 **Goal**: Build standalone warning page and bypass controls.
@@ -175,7 +175,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 12-01: Implement warning interstitial UI, proceed override handlers, and allowlist persistence.
+- [x] 12-01: Implement warning interstitial UI, proceed override handlers, and allowlist persistence.
 
 ### Phase 13: ML Dataset and Feature Engineering
 **Goal**: Create curated, leakage-free training dataset and feature extraction pipeline.

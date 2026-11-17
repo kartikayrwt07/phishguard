@@ -14,6 +14,7 @@ import { ScanResult, ScanVerdict } from '../shared/types';
 import { BadgeManager } from './badge';
 import { HeuristicEngine } from '../detection/heuristics';
 import { dnrRuleManager } from './dnr';
+import { BackendApiClient } from '../shared/api';
 
 const EXTENSION_VERSION = '1.0.0';
 
@@ -72,6 +73,14 @@ async function handleMessage(
           message.payload.domain
         );
         return { success: true, data: { success: true, allowlist: updated } };
+      }
+
+      case 'BYPASS_BLOCK': {
+        const { domain } = message.payload;
+        if (domain) {
+          await dnrRuleManager.removeRulesForDomain(domain);
+        }
+        return { success: true, data: { success: true, domain, bypassed: true } };
       }
 
       case 'ANALYZE_URL': {
@@ -133,7 +142,48 @@ async function handleMessage(
         // Persist to scan cache
         await storageManager.saveScanResult(result);
 
-        // 4. If confirmed threat and autoBlockEnabled, register DNR dynamic rule
+        // 4. Cloud Enrichment if enabled and not already cached
+        if (settings.cloudEnrichmentEnabled) {
+          const client = new BackendApiClient(settings.backendApiUrl);
+          const deviceInfo = await storageManager.getDeviceInfo(EXTENSION_VERSION);
+
+          if (message.payload.forceEnrichment) {
+            const cloudResult = await client.scanUrl(url, deviceInfo.deviceId);
+            if (cloudResult) {
+              await storageManager.saveScanResult(cloudResult);
+              if (tabId) {
+                await BadgeManager.updateBadge(tabId, cloudResult.verdict);
+              }
+              if (cloudResult.verdict === 'PHISHING' && settings.autoBlockEnabled && cloudResult.domain) {
+                const warningUrl =
+                  typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.getURL
+                    ? chrome.runtime.getURL('warning.html')
+                    : undefined;
+                await dnrRuleManager.blockDomain(cloudResult.domain, warningUrl);
+              }
+              return { success: true, data: cloudResult };
+            }
+          } else {
+            // Asynchronous background enrichment
+            client.scanUrl(url, deviceInfo.deviceId).then(async (cloudResult) => {
+              if (cloudResult) {
+                await storageManager.saveScanResult(cloudResult);
+                if (tabId) {
+                  await BadgeManager.updateBadge(tabId, cloudResult.verdict);
+                }
+                if (cloudResult.verdict === 'PHISHING' && settings.autoBlockEnabled && cloudResult.domain) {
+                  const warningUrl =
+                    typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.getURL
+                      ? chrome.runtime.getURL('warning.html')
+                      : undefined;
+                  await dnrRuleManager.blockDomain(cloudResult.domain, warningUrl);
+                }
+              }
+            }).catch(() => {});
+          }
+        }
+
+        // 5. If confirmed threat and autoBlockEnabled, register DNR dynamic rule
         if (result.verdict === 'PHISHING' && settings.autoBlockEnabled && result.domain) {
           const warningUrl =
             typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.getURL

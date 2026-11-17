@@ -71,3 +71,16 @@ def require_role(allowed_roles: List[UserRole]) -> Callable:
 get_current_admin = require_role([UserRole.ADMIN])
 get_current_analyst_or_admin = require_role([UserRole.ADMIN, UserRole.ANALYST])
 
+
+async def get_optional_user(
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(bearer_scheme),
+    session: AsyncSession = Depends(get_db),
+) -> Optional[User]:
+    """Extract user if valid Bearer token is provided, otherwise return None."""
+    if not credentials or not credentials.credentials:
+        return None
+    try:
+        return await get_current_user(credentials, session)
+    except AuthenticationError:
+        return None
+

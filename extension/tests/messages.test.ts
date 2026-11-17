@@ -4,6 +4,7 @@ import { storageManager } from '../src/shared/storage';
 import {
   AddAllowlistMessage,
   AnalyzeUrlMessage,
+  BypassBlockMessage,
   GetAllowlistMessage,
   GetDeviceInfoMessage,
   GetSettingsMessage,
@@ -99,6 +100,17 @@ describe('Service Worker Message Bus', () => {
     expect(result.score).toBe(0);
     expect(result.source).toBe('override');
     expect(result.evidence[0].rule_name).toBe('USER_ALLOWLIST');
+  });
+
+  it('handles BYPASS_BLOCK message and unregisters DNR rule', async () => {
+    const bypassMsg: BypassBlockMessage = {
+      type: 'BYPASS_BLOCK',
+      payload: { domain: 'threat-domain.xyz' },
+    };
+    const resp = await handleMessage(bypassMsg, dummySender);
+    expect(resp.success).toBe(true);
+    expect((resp.data as any).bypassed).toBe(true);
+    expect((resp.data as any).domain).toBe('threat-domain.xyz');
   });
 
   it('rejects unsupported message types gracefully', async () => {
