@@ -9,6 +9,7 @@ from app.core.config import settings
 from app.detection.brand_matcher import BrandMatchResult, BrandMatcher
 from app.detection.dom_evaluator import DOMEvaluationResult, DOMSignalEvaluator, DOMSignals
 from app.detection.features import FeatureExtractor, URLFeatures
+from app.detection.ml_classifier import MLClassifier, MLEvaluationResult
 from app.detection.url_parser import ParsedURL, URLNormalizer
 from app.models.scan import ScanVerdict
 
@@ -276,6 +277,24 @@ class RiskEngine:
                         description=item["description"],
                         details=item.get("details", {}),
                     ))
+
+        # Layer 6: Machine Learning Inference
+        ml_result = MLClassifier.evaluate(parsed.raw_url)
+        if ml_result and ml_result.is_phishing:
+            total_score += ml_result.score_contribution
+            confidences.append(ml_result.confidence)
+            evidence_list.append(EvidenceItem(
+                rule_code="ML_PREDICTED_PHISHING",
+                layer_name="ml_classifier",
+                score_contribution=ml_result.score_contribution,
+                confidence=ml_result.confidence,
+                description=f"Machine learning classifier detected phishing patterns ({int(ml_result.probability * 100)}% probability)",
+                details={
+                    "probability": ml_result.probability,
+                    "model_name": ml_result.model_name,
+                    "version": ml_result.version,
+                },
+            ))
 
         # Aggregate and bound score
         final_score = min(100.0, max(0.0, total_score))

@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-11-14T08:20:31.771307+00:00",
+  "champion_model": "Random Forest",
+  "splits": {
+    "train": 409,
+    "val": 89,
+    "test": 102
+  },
+  "models": [
+    {
+      "model_name": "Logistic Regression (Baseline)",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "true_positives": 48,
+      "false_positives": 0,
+      "true_negatives": 54,
+      "false_negatives": 0,
+      "avg_latency_ms": 0.0
+    },
+    {
+      "model_name": "Random Forest",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "true_positives": 48,
+      "false_positives": 0,
+      "true_negatives": 54,
+      "false_negatives": 0,
+      "avg_latency_ms": 0.314
+    },
+    {
+      "model_name": "Gradient Boosted Trees (GBDT)",
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "true_positives": 48,
+      "false_positives": 0,
+      "true_negatives": 54,
+      "false_negatives": 0,
+      "avg_latency_ms": 0.0
+    }
+  ]
+}

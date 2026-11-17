@@ -5,16 +5,16 @@
 See: `.planning/PROJECT.md` (updated 2026-11-14)
 
 **Core value:** Accurately detect and disrupt deceptive web destinations and credential harvesting attempts in real-time, delivering explainable risk evidence while remaining fully functional offline and rigorously defending user privacy.  
-**Current focus:** Phase 13: ML Dataset and Feature Engineering
+**Current focus:** Phase 15: Dashboard Foundation and Authentication
 
 ## Current Position
 
-Phase: 13 of 20 (Phase 13: ML Dataset and Feature Engineering)  
+Phase: 15 of 20 (Phase 15: Dashboard Foundation and Authentication)  
 Plan: 0 of 1 in current phase  
 Status: Ready to plan  
-Last activity: 2026-11-14 — Completed Phase 12 (M12). Standalone warning interstitial UI (`warning.html`), explainable evidence presentation, safe navigation triggers, two-step proceed overrides (`BYPASS_BLOCK`), and allowlist persistence verified passing (97/97 total tests passing across monorepo). Wave 3 (Extension & Client Protection) is now fully complete!
+Last activity: 2026-11-14 — Completed Phase 14 (M14). Candidate ML models benchmarked on domain-grouped test set, champion Random Forest model serialized to `ml/models/phishguard_rf_v1.joblib`, and Layer 6 ML inference integrated into backend detection engine verified passing (115/115 total tests passing across monorepo). Wave 4 (Machine Learning Pipeline) is now fully complete!
 
-Progress: [▓▓▓▓▓▓▓▓▓▓▓▓] 60%
+Progress: [▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 70%
 
 ## Accumulated Context
 
@@ -57,6 +57,13 @@ Progress: [▓▓▓▓▓▓▓▓▓▓▓▓] 60%
 - [M11]: React + Tailwind popup displays real-time risk gauge, threat tags, explainable evidence items, and allowlist controls.
 - [M12]: Warning interstitial (`warning.html`) renders detailed threat verdict, risk score, confidence rating, and itemized explainable evidence list.
 - [M12]: Implemented primary "Back to Safety" navigation alongside two-step proceed overrides (`BYPASS_BLOCK` and `ADD_ALLOWLIST`) with dynamic DNR rule unregistration to prevent infinite redirect loops.
+- [M13]: Curated URL dataset generator produces balanced 50/50 legitimate and phishing samples across 12 categories with eTLD+1 domain tracking.
+- [M13]: DomainGroupedSplitter enforces zero domain leakage between Train, Validation, and Test partitions.
+- [M13]: URLFeatureTransformer extracts 34 numeric features matching backend detection features with full Scikit-learn Pipeline interoperability.
+- [M14]: Trained Logistic Regression, Random Forest, and GBDT on holdout test set with zero domain leakage; Random Forest selected as champion with 100% test F1 and 0% FPR.
+- [M14]: Serialized champion model with Joblib to `ml/models/phishguard_rf_v1.joblib` and integrated Layer 6 ML inference into backend RiskEngine, generating `ML_PREDICTED_PHISHING` evidence when phishing probability >= 0.65.
+- [M13]: DomainGroupedSplitter enforces zero domain leakage between Train, Validation, and Test partitions.
+- [M13]: URLFeatureTransformer extracts 34 numeric features matching backend detection features with full Scikit-learn Pipeline interoperability.
 
 ### Pending Todos
 

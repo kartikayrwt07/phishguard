@@ -187,7 +187,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 13-01: Implement dataset curation script, leakage-free splitters, and feature transformation pipelines.
+- [x] 13-01: Implement dataset curation script, leakage-free splitters, and feature transformation pipelines.
 
 ### Phase 14: ML Model Training Evaluation and Versioning
 **Goal**: Train, evaluate, and serialize baseline and tree-based classifiers.
@@ -199,7 +199,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 14-01: Train classifiers, generate metrics report, and integrate model inference into backend.
+- [x] 14-01: Train classifiers, generate metrics report, and integrate model inference into backend.
 
 ### Phase 15: Dashboard Foundation and Authentication
 **Goal**: Build React + TypeScript admin dashboard foundation with secure auth and RBAC guards.
